@@ -29,6 +29,8 @@ The practical implementation of this looks something like:
 - Implement uniform RLS policies for every resource, which defer to a custom function
 - Implement a custom function which accepts the context information + FHIR resource JSON and approves or denies access.
 
+To note here: it might be possible to avoid custom functions entirely and implement access control rules in pgplsql. _However_ this might be detrimental to testing. In this PoC I am exploring the possibility of re-using oso authorization library and access control rules, since those are logically the same regardless of the enforcement point. This should also facilitate testing since unit tests might be written directly against the policy evaluation function rather than requiring a postgresql installation to test on.
+
 Doing this would permit: 
 - higher level components can remain unconcerned and uncomplicated by authorization considerations.
 - arbitrary SQL queries (including user submitted queries) might be executed safely over FHIR tables.
