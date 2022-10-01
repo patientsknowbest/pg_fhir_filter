@@ -1,0 +1,5 @@
+comment = 'pg_fhir_filter:  Created by pgx'
+default_version = '@CARGO_VERSION@'
+module_pathname = '$libdir/pg_fhir_filter'
+relocatable = false
+superuser = false
